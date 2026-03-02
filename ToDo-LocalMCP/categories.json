@@ -1,0 +1,8 @@
+{
+  "work": ["meeting", "project", "deadline", "review", "report", "email", "call", "other"],
+  "personal": ["health", "finance", "family", "errands", "home", "fitness", "hobby", "other"],
+  "learning": ["course", "book", "practice", "research", "other"],
+  "shopping": ["groceries", "gadgets", "clothing", "other"],
+  "travel": ["booking", "packing", "itinerary", "other"],
+  "misc": ["uncategorized", "other"]
+}
