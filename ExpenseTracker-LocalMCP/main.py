@@ -70,6 +70,15 @@ def summarize(start_date, end_date, category=None):
         cur = c.execute(query, params)
         cols = [d[0] for d in cur.description]
         return [dict(zip(cols, r)) for r in cur.fetchall()]
+    
+@mcp.tool()
+def delete_expense(id: int):
+    '''Delete an expense entry by its ID.'''
+    with sqlite3.connect(DB_PATH) as c:
+        cur = c.execute("DELETE FROM expenses WHERE id = ?", (id,))
+        if cur.rowcount == 0:
+            return {"status": "error", "message": f"No expense found with id {id}"}
+        return {"status": "ok", "deleted_id": id}
 
 @mcp.resource("expense://categories", mime_type="application/json")
 def categories():
